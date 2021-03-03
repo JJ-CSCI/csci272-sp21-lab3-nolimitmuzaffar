@@ -4,10 +4,40 @@
 #include "catch.hpp"
 //------------------------------
 
-// Put the assignment code here
 
-class Quaternion {
+// Put the assignment code here
+//cleaned the code after the lecture
+class Quaternion{
+  double first_coefficient, second_coefficient, third_coefficient, fourth_coefficient;
+  public:
+  Quaternion(double one, double two, double three, double four):
+    first_coefficient{one}, second_coefficient{two},third_coefficient{three},fourth_coefficient{four}{}
+
+  bool operator==(const Quaternion& mn)const{
+    if (first_coefficient!= mn.first_coefficient) return false;
+    else if (second_coefficient != mn.second_coefficient) return false;
+    else if (third_coefficient != mn.third_coefficient) return false;
+    else if (fourth_coefficient != mn.fourth_coefficient) return false;
+    else return true;
+  }
+  Quaternion operator+(const Quaternion& ab)const{
+    Quaternion addition{first_coefficient+ab.first_coefficient, second_coefficient+ab.second_coefficient, third_coefficient+ab.third_coefficient, fourth_coefficient+ab.fourth_coefficient};
+    return addition;
+  }
+  Quaternion operator-(const Quaternion& bc)const{
+    Quaternion subtraction{first_coefficient-bc.first_coefficient, second_coefficient-bc.second_coefficient, third_coefficient-bc.third_coefficient, fourth_coefficient-bc.fourth_coefficient};
+    return subtraction;
+  }
+  Quaternion operator*(int scale)const{
+    Quaternion abc{first_coefficient*scale, second_coefficient*scale, third_coefficient*scale, fourth_coefficient*scale};
+    return abc;
+  }    
+
+
+          
 };
+
+
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
